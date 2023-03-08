@@ -4,10 +4,10 @@ const modelAbility = require('./models/Ability.js');
 const modelRole = require('./models/Role.js');
 
 const db = new Sequelize(
-   'postgres://user:password@localhost:5432/henrydatabase',
-   {
-      logging: false,
-   }
+	'postgres://postgres:Nacho41868591.@localhost:5432/henrydatabase',
+	{
+		logging: false,
+	},
 );
 
 modelCharacter(db);
@@ -15,7 +15,7 @@ modelAbility(db);
 modelRole(db);
 
 module.exports = {
-   ...db.models,
-   db,
-   Op,
+	...db.models,
+	db,
+	Op,
 };
