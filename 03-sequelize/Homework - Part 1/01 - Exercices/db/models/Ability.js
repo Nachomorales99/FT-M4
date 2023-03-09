@@ -7,6 +7,7 @@ module.exports = (sequelize) => {
 			name: {
 				type: DataTypes.STRING,
 				allowNull: false,
+				unique: 'compositeIndex',
 			},
 			description: {
 				type: DataTypes.TEXT,
@@ -14,22 +15,30 @@ module.exports = (sequelize) => {
 			mana_cost: {
 				type: DataTypes.FLOAT,
 				allowNull: false,
+				unique: 'compositeIndex',
 				validate: {
-					isFloat: true,
 					min: 10.0,
 					max: 250.0,
 				},
 			},
+			// summary: {
+			// 	type: DataTypes.VIRTUAL,
+			// 	get() {
+			// 		return `${this.name} (${Math.floor(
+			// 			this.mana_cost,
+			// 		)} points of mana) - Description: ${this.description}`;
+			// 	},
+			// },
 		},
-		{
-			indexes: [
-				{
-					unique: true,
-					fields: ['name', 'mana_cost'],
-					name: 'compositeIndex',
-				},
-			],
-		},
+		// {
+		// 	indexes: [
+		// 		{
+		// 			unique: true,
+		// 			fields: ['name', 'mana_cost'],
+		// 			name: 'compositeIndex',
+		// 		},
+		// 	],
+		// },
 		{
 			timestamps: false,
 		},

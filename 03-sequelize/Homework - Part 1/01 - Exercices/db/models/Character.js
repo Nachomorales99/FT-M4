@@ -11,8 +11,8 @@ module.exports = (sequelize) => {
 				unique: true,
 				validate: {
 					constumValidator(value) {
-						if (value === value.toUpperCase()) throw Error('Error');
-						if (value === value.toLowerCase()) throw Error('Error');
+						if (value.toUpperCase() === 'HENRY') throw Error('Error, is HENRY');
+						if (value.toLowerCase() === 'henry') throw Error('Error, is henry');
 					},
 				},
 			},
@@ -47,6 +47,10 @@ module.exports = (sequelize) => {
 			mana: {
 				type: DataTypes.FLOAT,
 				allowNull: false,
+			},
+			date_added: {
+				type: DataTypes.DATEONLY,
+				defaultValue: DataTypes.NOW,
 			},
 		},
 		{

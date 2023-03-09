@@ -19,7 +19,7 @@ describe('Ejercicio 2 | Modelos DB', () => {
 				hp: 100.0,
 				mana: 150.0,
 			});
-			const keys = ['race', 'code', 'name', 'age', 'hp', 'mana'];
+			const keys = ['race', 'date_added', 'code', 'name', 'age', 'hp', 'mana'];
 			expect(Object.keys(character.toJSON())).toEqual(keys);
 		});
 
